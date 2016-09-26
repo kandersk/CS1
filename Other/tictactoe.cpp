@@ -106,7 +106,7 @@ int main()
     {
       winner = winner + 1;
     }
-    else if (s3 == s5 && s3 == s9)
+    else if (s3 == s5 && s3 == s7)
     {
       winner = winner + 1;
     }
