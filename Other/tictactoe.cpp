@@ -111,6 +111,15 @@ int main()
       winner = winner + 1;
     }
     
+    if (s1 != 49 && s2 != 50 && s3 != 51 
+      && s4 != 52 && s5 != 53 && s6 != 54 && s7 != 55 && s8 != 56 && s9 != 57)
+    {
+      cout << "Oh no, everyone is a loser..." << endl;
+      cout << "Sucks!" << endl;
+      cout << "Game over :/" << endl;
+      return 0;
+    }
+    
     if (winner == 1)
     {
       cout << endl << s1 << " │ " << s2 << " │ " << s3
