@@ -110,10 +110,26 @@ int main()
     {
       winner = winner + 1;
     }
-    
-    if (s1 != 49 && s2 != 50 && s3 != 51 
+    else if (s2 == s5 && s2 == s8)
+    {
+      winner = winner + 1;
+    }
+    else if (s1 == s4 && s1 == s7)
+    {
+      winner = winner + 1;
+    }
+    else if (s3 == s6 && s3 == s9)
+    {
+      winner = winner + 1;
+    }
+    if (winner == 0 && s1 != 49 && s2 != 50 && s3 != 51 
       && s4 != 52 && s5 != 53 && s6 != 54 && s7 != 55 && s8 != 56 && s9 != 57)
     {
+      cout << endl << s1 << " │ " << s2 << " │ " << s3
+      << "\n──┼───┼──\n" << s4 << " │ " << s5 << " │ " << s6
+      << "\n──┼───┼──\n" << s7 << " │ " << s8 << " │ " << s9
+      << endl;
+      
       cout << "Oh no, everyone is a loser..." << endl;
       cout << "Sucks!" << endl;
       cout << "Game over :/" << endl;
