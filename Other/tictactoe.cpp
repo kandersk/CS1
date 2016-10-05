@@ -6,10 +6,10 @@ kandersk@uindy.edu
 https://github.com/kandersk
 
 */
-
 #include <iostream>
 
 using namespace std;
+
 
 int main()
 {
@@ -24,14 +24,13 @@ int main()
   char s7 = 55;
   char s8 = 56;
   char s9 = 57;
-  char x = 'x';
-  char o = 'o';
+  char x = 'x'; //120
+  char o = 'o'; //111
   char print = 0;
   
   int winner = 0;
   cout << endl;
   cout << "Welcome to tic tac toe, each square represents a number:" << endl;
-  
   do
   {
     cout << endl << s1 << " │ " << s2 << " │ " << s3 << endl 
@@ -40,9 +39,12 @@ int main()
     << "──┼───┼──" << endl 
     << s7 << " │ " << s8 << " │ " << s9 << endl;
     
-    
-    cout << "Slot: ";
-    cin  >> input;
+    do
+    {
+      cout << "Slot: ";
+      cin  >> input;
+    }
+    while (input >= 1 && input <= 9);
     
     if (turn % 2 == 1)
     {
@@ -52,6 +54,7 @@ int main()
     {
       print = o;
     }
+    
     
     if (input == s1)
     {
@@ -125,6 +128,7 @@ int main()
     if (winner == 0 && s1 != 49 && s2 != 50 && s3 != 51 
       && s4 != 52 && s5 != 53 && s6 != 54 && s7 != 55 && s8 != 56 && s9 != 57)
     {
+      cout << "\033[7A";
       cout << endl << s1 << " │ " << s2 << " │ " << s3
       << "\n──┼───┼──\n" << s4 << " │ " << s5 << " │ " << s6
       << "\n──┼───┼──\n" << s7 << " │ " << s8 << " │ " << s9
@@ -132,9 +136,11 @@ int main()
       
       cout << "Oh no, everyone is a loser..." << endl;
       cout << "Sucks!" << endl;
-      cout << "Game over :/" << endl;
+      cout << "Game over in " << turn - 1 << " turns :/" << endl;
       return 0;
     }
+    
+    cout << "\033[7A"; 
     
     if (winner == 1)
     {
@@ -153,10 +159,12 @@ int main()
       }
     }
     turn ++;
+    
+   
   }
   while (winner == 0);
   
-  cout << "Game over in " << turn << " turns" << endl;
+  cout << "Game over in " << turn - 1 << " turns" << endl;
 
   
   
