@@ -1,0 +1,43 @@
+#define VCAP 0
+#define READY 2
+#define MAXDATA 50
+
+int flag = 0;
+int dataCounter = 1;
+unsigned long startMicros = 0L;
+
+void setup() {
+  bitClear(ADCSRA,ADPS0) ; // change the settings of the clock, increasing frequancy 
+  bitClear(ADCSRA,ADPS1) ; // but slightly (negligable) reducing accuracy
+  bitSet(ADCSRA,ADPS2) ;
+  
+  Serial.begin(9600);
+  pinMode(READY, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (digitalRead(READY) == HIGH)
+  {
+    if (flag == 0)
+    {
+      Serial.print("\n");
+      Serial.println ("Count     Time            Vc");
+      flag = 1;
+      startMicros = micros();
+    }
+  
+    else
+    {
+      while (dataCounter <= MAXDATA)
+      {
+        Serial.print(dataCounter);
+        Serial.print('\t');
+        Serial.print(((micros()-startMicros) * 0.000001),6);
+        Serial.print('\t');
+        Serial.println((analogRead(VCAP) * (5.00 / 1023.00)),4);
+        ++dataCounter;      
+      }
+    }
+  }
+}
