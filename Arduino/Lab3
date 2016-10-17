@@ -17,7 +17,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (digitalRead(READY) == HIGH)
+  if (digitalRead(READY) == LOW)
   {
     if (flag == 0)
     {
