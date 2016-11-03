@@ -1,0 +1,33 @@
+#include "SparkFunMPL3115A2.h"
+#include <Wire.h>
+
+MPL3115A2 alt;
+
+float altitude = 0.00;
+float startTime = 0.00;
+int first = 0;
+void setup() {
+  Serial.begin (9600);
+  Wire.begin();
+  alt.begin();
+  alt.setModeAltimeter();
+  alt.setOversampleRate(7);
+  alt.enableEventFlags();
+   
+}
+
+void loop() {
+
+    if (first == 0){
+      Serial.println("Altitude (ft)      Time (ms)");
+      startTime = millis();
+      ++first;
+    }
+    else{
+      altitude = alt.readAltitudeFt();
+      Serial.print (altitude, 2);
+      Serial.print ("        \t");
+      Serial.println (millis() - startTime);
+      delay (250);
+    }
+}
