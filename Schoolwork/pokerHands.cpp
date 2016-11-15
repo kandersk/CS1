@@ -1,3 +1,11 @@
+/*
+Run as many simulations as specified by the user and each time
+Shuffle a deck of cards, deal 5 cards to each player (currently two players),
+compare the two hands (check for royal flush, straight flush, flush, straight and high card),
+log statistics. 
+After simulations have been ran display the statistics for each hand.
+*/
+
 #include <iostream>
 #include <string>
 #include <ctime>
