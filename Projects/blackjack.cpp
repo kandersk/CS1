@@ -1,3 +1,12 @@
+/*
+A game of blackjack with dealer rule of hit if score is < 17, aces count as 11
+each run is one play
+
+By:
+Kristians Kanders
+kandersk@uindy.edu
+
+*/
 #include <iostream>
 #include <iomanip>
 #include <string>
