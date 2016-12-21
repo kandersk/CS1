@@ -1,4 +1,4 @@
-Personal projects and school assignments
+Work that has been interesting to do.
 
 copyright 
 Kristians Kanders
